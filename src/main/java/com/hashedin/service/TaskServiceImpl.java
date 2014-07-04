@@ -9,52 +9,66 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hashedin.model.Task;
 import com.hashedin.repository.TaskRepository;
 
-
 @Service("taskService")
-public class TaskServiceImpl implements TaskService
-{
+public class TaskServiceImpl implements TaskService {
 
-    @Autowired
-    private TaskRepository taskRepository;
+	@Autowired
+	private TaskRepository	taskRepository;
 
+	public Task find(Long taskId) {
 
-    public Task find(Long taskId)
-    {
-        // Returns the Task for given taskId.
-        return taskRepository.find(taskId);
-    }
+		// Returns the Task for given taskId.
+		return taskRepository.find(taskId);
+	}
 
+	@Transactional
+	public Task save(Task task) {
 
-    @Transactional
-    public Task save(Task task)
-    {
-        // Saves the given task object and returns the same.
-        taskRepository.save(task);
-        return task;
-    }
+		// Saves the given task object and returns the same.
+		taskRepository.save(task);
+		return task;
+	}
 
+	@Override
+	public List<Task> findAll() {
 
-    @Override
-    public List<Task> findAll()
-    {
-        // Returns all the tasks in our system.
-        return taskRepository.findAll();
-    }
+		// Returns all the tasks in our system.
+		return taskRepository.findAll();
+	}
 
+	@Override
+	public Task update(Task task, Long taskId) {
 
-    @Override
-    public Task update(Task task, Long taskId)
-    {
-        // Updates the task with the given taskId;
-        return null;
-    }
+		// Updates the task with the given taskId;
+		return null;
+	}
 
+	@Transactional
+	public Task delete(Long taskId) {
 
-    @Transactional
-    public Task delete(Long taskId)
-    {
-        // Deletes the task with the give taskId and returns the same.
-        return taskRepository.delete(taskId);
-    }
+		// Deletes the task with the give taskId and returns the same.
+		return taskRepository.delete(taskId);
+	}
+
+	@Override
+	public List<Task> findByProjectId(long projectId) {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Task> findByAssignedTo(long userId) {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Task> findByStatus(int status) {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
