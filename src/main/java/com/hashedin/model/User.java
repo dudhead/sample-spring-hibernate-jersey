@@ -19,7 +19,7 @@ public class User {
 	private String	designation;
 	private String	email;
 	private String	imageUri;
-	@OneToMany
+	@OneToMany(mappedBy = "assignedTo")
 	List<Task>		tasks;
 
 	public Long getId() {
