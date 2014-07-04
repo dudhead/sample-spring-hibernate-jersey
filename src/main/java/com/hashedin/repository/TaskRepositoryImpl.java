@@ -56,20 +56,6 @@ public class TaskRepositoryImpl implements TaskRepository {
 	}
 
 	@Override
-	public List<Task> findByProjectId(long projectId) {
-
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Task> findByAssignedTo(long userId) {
-
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<Task> findByStatus(int status) {
 
 		// TODO Auto-generated method stub

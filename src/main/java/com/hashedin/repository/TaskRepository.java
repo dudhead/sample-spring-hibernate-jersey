@@ -16,10 +16,6 @@ public interface TaskRepository {
 
 	Task delete(Long taskId);
 
-	List<Task> findByProjectId(long projectId);
-
-	List<Task> findByAssignedTo(long userId);
-
 	List<Task> findByStatus(int status);
 
 }

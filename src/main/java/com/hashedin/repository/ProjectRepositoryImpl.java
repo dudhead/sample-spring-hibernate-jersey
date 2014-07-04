@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.hashedin.model.Project;
+import com.hashedin.model.Task;
 
 @Repository("projectRepository")
 public class ProjectRepositoryImpl implements ProjectRepository {
@@ -37,6 +38,12 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 		em.persist(project);
 		em.flush();
 		return project;
+	}
+
+	@Override
+	public List<Task> findTasksByProjectId(Long projectId) {
+
+		return em.find(Project.class, projectId).getTasks();
 	}
 
 }

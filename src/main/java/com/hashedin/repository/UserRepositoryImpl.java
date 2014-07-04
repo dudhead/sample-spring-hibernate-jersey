@@ -1,10 +1,13 @@
 package com.hashedin.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import com.hashedin.model.Task;
 import com.hashedin.model.User;
 import com.hashedin.service.UserService;
 
@@ -26,6 +29,12 @@ public class UserRepositoryImpl implements UserService {
 		em.persist(user);
 		em.flush();
 		return user;
+	}
+
+	@Override
+	public List<Task> findTasksByUserId(long userId) {
+
+		return em.find(User.class, userId).getTasks();
 	}
 
 }

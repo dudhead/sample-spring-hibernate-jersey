@@ -3,6 +3,7 @@ package com.hashedin.repository;
 import java.util.List;
 
 import com.hashedin.model.Project;
+import com.hashedin.model.Task;
 
 public interface ProjectRepository {
 
@@ -11,4 +12,6 @@ public interface ProjectRepository {
 	List<Project> findAll();
 
 	Project save(Project project);
+
+	List<Task> findTasksByProjectId(Long projectId);
 }

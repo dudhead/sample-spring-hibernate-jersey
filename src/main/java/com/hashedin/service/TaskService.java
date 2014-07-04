@@ -10,15 +10,11 @@ public interface TaskService {
 
 	List<Task> findAll();
 
-	List<Task> findByProjectId(long projectId);
-
-	List<Task> findByAssignedTo(long userId);
-
-	List<Task> findByStatus(int status);
-
 	Task save(Task task);
 
 	Task update(Task task, Long taskId);
 
 	Task delete(Long taskId);
+
+	List<Task> findByStatus(int status);
 }
