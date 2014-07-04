@@ -5,11 +5,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "projects")
+@NamedQueries({ @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p") })
 public class Project {
 
 	@Id
