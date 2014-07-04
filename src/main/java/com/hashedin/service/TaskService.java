@@ -8,9 +8,9 @@ public interface TaskService {
 
 	Task find(Long taskId);
 
-	List<Task> findByProjectId(long projectId);
-
 	List<Task> findAll();
+
+	List<Task> findByProjectId(long projectId);
 
 	List<Task> findByAssignedTo(long userId);
 
