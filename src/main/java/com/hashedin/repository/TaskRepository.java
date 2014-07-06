@@ -18,4 +18,6 @@ public interface TaskRepository {
 
 	List<Task> findByStatus(int status);
 
+	List<Task> getStatistics();
+
 }

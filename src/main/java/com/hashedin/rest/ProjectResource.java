@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -64,6 +65,23 @@ public class ProjectResource {
 	public List<Task> getTasks(@PathParam("projectId") Long projectId) {
 
 		return projectService.findTasksByProjectId(projectId);
+	}
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{projectId}/tasks")
+	public List<Task> getTasksByStatus(@PathParam("projectId") Long projectId) {
+
+		return projectService.findTasksByProjectId(projectId);
+	}
+
+	@DELETE
+	@Path("/{projectId}")
+	public Project delete(@PathParam("projectId") Long projectId) {
+
+		// Handles DELETE on /tasks/taskId. Deletes the existing task and
+		// returns the same.
+		return projectService.delete(projectId);
 	}
 
 }

@@ -17,4 +17,7 @@ public interface TaskService {
 	Task delete(Long taskId);
 
 	List<Task> findByStatus(int status);
+
+	List<Task> getStatistics();
+
 }

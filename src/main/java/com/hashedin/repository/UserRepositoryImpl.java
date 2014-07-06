@@ -47,4 +47,12 @@ public class UserRepositoryImpl implements UserRepository {
 		return results;
 	}
 
+	@Override
+	public User delete(Long userId) {
+
+		User userToBeDeleted = em.find(User.class, userId);
+		em.remove(userToBeDeleted);
+		return userToBeDeleted;
+	}
+
 }

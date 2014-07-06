@@ -64,4 +64,9 @@ public class TaskRepositoryImpl implements TaskRepository {
 		return null;
 	}
 
+	@Override
+	public List<Task> getStatistics() {
+
+		return null;
+	}
 }

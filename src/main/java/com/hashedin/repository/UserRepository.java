@@ -14,4 +14,6 @@ public interface UserRepository {
 	List<Task> findTasksByUserId(long userId);
 
 	List<User> findAll();
+
+	User delete(Long userId);
 }

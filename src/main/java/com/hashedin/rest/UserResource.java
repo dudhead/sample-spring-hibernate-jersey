@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -65,6 +66,15 @@ public class UserResource {
 	public List<Task> getTasks(@PathParam("userId") Long userId) {
 
 		return userService.findTasksByUserId(userId);
+	}
+
+	@DELETE
+	@Path("/{userId}")
+	public User delete(@PathParam("userId") Long userId) {
+
+		// Handles DELETE on /tasks/taskId. Deletes the existing task and
+		// returns the same.
+		return userService.delete(userId);
 	}
 
 }

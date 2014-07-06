@@ -58,4 +58,11 @@ public class TaskServiceImpl implements TaskService {
 		return null;
 	}
 
+	@Override
+	public List<Task> getStatistics() {
+
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

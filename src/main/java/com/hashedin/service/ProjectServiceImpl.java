@@ -39,4 +39,11 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.findTasksByProjectId(projectId);
 	}
 
+	@Override
+	public Project delete(Long projectId) {
+
+		// TODO Auto-generated method stub
+		return projectRepository.delete(projectId);
+	}
+
 }

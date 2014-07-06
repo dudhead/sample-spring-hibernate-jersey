@@ -47,4 +47,12 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 		return em.find(Project.class, projectId).getTasks();
 	}
 
+	@Override
+	public Project delete(Long projectId) {
+
+		Project projectToBeDeleted = em.find(Project.class, projectId);
+		em.remove(projectToBeDeleted);
+		return projectToBeDeleted;
+	}
+
 }

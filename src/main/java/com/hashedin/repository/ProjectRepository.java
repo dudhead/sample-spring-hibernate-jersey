@@ -14,4 +14,6 @@ public interface ProjectRepository {
 	Project save(Project project);
 
 	List<Task> findTasksByProjectId(Long projectId);
+
+	Project delete(Long projectId);
 }

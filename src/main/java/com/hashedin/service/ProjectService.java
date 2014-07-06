@@ -15,6 +15,8 @@ public interface ProjectService {
 
 	public List<Task> findTasksByProjectId(Long projectId);
 
+	Project delete(Long projectId);
+
 	// Project update(Project task, Long taskId);
 
 	// Project delete(Long taskId);
