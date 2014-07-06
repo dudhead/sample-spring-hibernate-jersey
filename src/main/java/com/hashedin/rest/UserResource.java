@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.hashedin.model.Task;
 import com.hashedin.model.User;
 import com.hashedin.service.UserService;
 
@@ -57,4 +58,13 @@ public class UserResource {
 
 		return userService.find(userId);
 	}
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{userId}/tasks")
+	public List<Task> getTasks(@PathParam("userId") Long userId) {
+
+		return userService.findTasksByUserId(userId);
+	}
+
 }

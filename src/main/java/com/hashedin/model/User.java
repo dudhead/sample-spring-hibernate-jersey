@@ -3,13 +3,16 @@ package com.hashedin.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @Table(name = "users")
 @NamedQueries({ @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u") })
@@ -22,7 +25,7 @@ public class User {
 	private String	designation;
 	private String	email;
 	private String	imageUri;
-	@OneToMany(mappedBy = "assignedTo")
+	@OneToMany(mappedBy = "assignedTo", fetch = FetchType.EAGER)
 	List<Task>		tasks;
 
 	public Long getId() {

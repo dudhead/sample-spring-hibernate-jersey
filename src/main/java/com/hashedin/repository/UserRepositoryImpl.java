@@ -26,6 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public User save(User user) {
 
+		// Saving the users to the DB
 		em.persist(user);
 		em.flush();
 		return user;
