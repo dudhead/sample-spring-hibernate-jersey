@@ -1,4 +1,4 @@
-package com.hashedin.service;
+package com.hashedin.serviceimpl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hashedin.model.Task;
 import com.hashedin.repository.TaskRepository;
+import com.hashedin.service.TaskService;
 
 @Service("taskService")
 public class TaskServiceImpl implements TaskService {

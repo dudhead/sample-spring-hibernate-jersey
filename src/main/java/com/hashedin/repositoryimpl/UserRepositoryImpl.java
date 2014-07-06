@@ -1,4 +1,4 @@
-package com.hashedin.repository;
+package com.hashedin.repositoryimpl;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hashedin.model.Task;
 import com.hashedin.model.User;
+import com.hashedin.repository.UserRepository;
 
 @Repository("userRepository")
 public class UserRepositoryImpl implements UserRepository {

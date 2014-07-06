@@ -1,4 +1,4 @@
-package com.hashedin.repository;
+package com.hashedin.repositoryimpl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.hashedin.model.Task;
+import com.hashedin.repository.TaskRepository;
 
 @Repository("taskRepository")
 public class TaskRepositoryImpl implements TaskRepository {

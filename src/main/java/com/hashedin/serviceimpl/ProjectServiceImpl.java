@@ -1,4 +1,4 @@
-package com.hashedin.service;
+package com.hashedin.serviceimpl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hashedin.model.Project;
 import com.hashedin.model.Task;
 import com.hashedin.repository.ProjectRepository;
+import com.hashedin.service.ProjectService;
 
 @Service("projectService")
 public class ProjectServiceImpl implements ProjectService {

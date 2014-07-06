@@ -1,4 +1,4 @@
-package com.hashedin.repository;
+package com.hashedin.repositoryimpl;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hashedin.model.Project;
 import com.hashedin.model.Task;
+import com.hashedin.repository.ProjectRepository;
 
 @Repository("projectRepository")
 public class ProjectRepositoryImpl implements ProjectRepository {
