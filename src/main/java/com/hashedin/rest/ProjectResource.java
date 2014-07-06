@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.hashedin.model.Project;
+import com.hashedin.model.Task;
 import com.hashedin.service.ProjectService;
 
 @Component
@@ -56,4 +57,13 @@ public class ProjectResource {
 		response.setStatus(Response.Status.CREATED.getStatusCode());
 		return Response.created(new URI("/tasks/" + project.getId())).build();
 	}
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/{projectId}/tasks")
+	public List<Task> getTasks(@PathParam("projectId") Long projectId) {
+
+		return projectService.findTasksByProjectId(projectId);
+	}
+
 }
