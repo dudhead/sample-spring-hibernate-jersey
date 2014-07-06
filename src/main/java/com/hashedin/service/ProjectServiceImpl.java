@@ -7,40 +7,36 @@ import org.springframework.stereotype.Service;
 
 import com.hashedin.model.Project;
 import com.hashedin.model.Task;
-import com.hashedin.repository.TaskRepository;
+import com.hashedin.repository.ProjectRepository;
 
 @Service("projectService")
 public class ProjectServiceImpl implements ProjectService {
 
 	@Autowired
-	private TaskRepository	taskRepository;
+	private ProjectRepository	projectRepository;
 
 	@Override
 	public Project find(Long taskId) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.find(taskId);
 	}
 
 	@Override
 	public List<Project> findAll() {
 
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.findAll();
 	}
 
 	@Override
-	public Project save(Project task) {
+	public Project save(Project project) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.save(project);
 	}
 
 	@Override
 	public List<Task> findTasksByProjectId(Long projectId) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.findTasksByProjectId(projectId);
 	}
 
 }

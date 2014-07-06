@@ -3,13 +3,16 @@ package com.hashedin.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @Table(name = "projects")
 @NamedQueries({ @NamedQuery(name = "Project.findAll", query = "SELECT p FROM Project p") })
@@ -20,7 +23,7 @@ public class Project {
 	private Long	id;
 	private String	name;
 	private String	description;
-	@OneToMany(mappedBy = "project")
+	@OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
 	List<Task>		tasks;
 
 	public Long getId() {
