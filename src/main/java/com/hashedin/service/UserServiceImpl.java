@@ -14,25 +14,31 @@ import com.hashedin.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository	UserRepository;
+	private UserRepository	userRepository;
 
 	@Override
 	public User find(Long userId) {
 
-		return UserRepository.find(userId);
+		return userRepository.find(userId);
 	}
 
 	@Transactional
 	public User save(User user) {
 
-		UserRepository.save(user);
+		userRepository.save(user);
 		return user;
 	}
 
 	@Override
 	public List<Task> findTasksByUserId(long userId) {
 
-		return UserRepository.find(userId).getTasks();
+		return userRepository.find(userId).getTasks();
+	}
+
+	@Override
+	public List<User> findAll() {
+
+		return userRepository.findAll();
 	}
 
 }

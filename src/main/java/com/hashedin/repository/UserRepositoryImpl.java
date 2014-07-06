@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -34,6 +35,15 @@ public class UserRepositoryImpl implements UserRepository {
 	public List<Task> findTasksByUserId(long userId) {
 
 		return em.find(User.class, userId).getTasks();
+	}
+
+	@Override
+	public List<User> findAll() {
+
+		TypedQuery<User> query = em
+				.createNamedQuery("User.findAll", User.class);
+		List<User> results = query.getResultList();
+		return results;
 	}
 
 }

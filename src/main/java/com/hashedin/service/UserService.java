@@ -13,6 +13,8 @@ public interface UserService {
 
 	List<Task> findTasksByUserId(long userId);
 
+	List<User> findAll();
+
 	// List<User> findAll();
 
 	// User update(User user, Long userId);
