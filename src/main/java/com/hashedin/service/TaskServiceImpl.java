@@ -15,6 +15,7 @@ public class TaskServiceImpl implements TaskService {
 	@Autowired
 	private TaskRepository	taskRepository;
 
+	@Override
 	public Task find(Long taskId) {
 
 		// Returns the Task for given taskId.

@@ -9,10 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import com.hashedin.model.Task;
 import com.hashedin.model.User;
-import com.hashedin.service.UserService;
 
 @Repository("userRepository")
-public class UserRepositoryImpl implements UserService {
+public class UserRepositoryImpl implements UserRepository {
 
 	@PersistenceContext
 	private EntityManager	em;
