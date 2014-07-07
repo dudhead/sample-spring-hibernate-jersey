@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.eclipse.persistence.oxm.annotations.XmlInverseReference;
+
 @XmlRootElement
 @Entity
 @Table(name = "projects")
@@ -23,6 +25,8 @@ public class Project {
 	private Long	id;
 	private String	name;
 	private String	description;
+
+	@XmlInverseReference(mappedBy = "project")
 	@OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
 	List<Task>		tasks;
 
