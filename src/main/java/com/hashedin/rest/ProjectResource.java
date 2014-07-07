@@ -70,9 +70,10 @@ public class ProjectResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/{projectId}/tasks/status/{statusId}")
-	public List<Task> getTasksByStatus(@PathParam("projectId") Long projectId) {
+	public List<Task> getTasksByStatus(@PathParam("projectId") Long projectId,
+			@PathParam("statusId") Long statusId) {
 
-		return projectService.findTasksByProjectId(projectId);
+		return projectService.findTasksOfProjectByStatus(projectId, statusId);
 	}
 
 	@DELETE

@@ -1,5 +1,6 @@
 package com.hashedin.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,9 @@ public class ProjectServiceImpl implements ProjectService {
 	private ProjectRepository	projectRepository;
 
 	@Override
-	public Project find(Long taskId) {
+	public Project find(Long projectId) {
 
-		return projectRepository.find(taskId);
+		return projectRepository.find(projectId);
 	}
 
 	@Override
@@ -37,7 +38,13 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<Task> findTasksByProjectId(Long projectId) {
 
-		return projectRepository.findTasksByProjectId(projectId);
+		Project project = projectRepository.find(projectId);
+		if (project != null) {
+			return project.getTasks();
+		}
+		else {
+			return new Project().getTasks();
+		}
 	}
 
 	@Override
@@ -47,4 +54,16 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.delete(projectId);
 	}
 
+	@Override
+	public List<Task> findTasksOfProjectByStatus(Long projectId, Long status) {
+
+		Project project = projectRepository.find(projectId);
+		List<Task> tasks = new ArrayList<Task>();
+		for (Task task : project.getTasks()) {
+			if (task.getStatus() == status) {
+				tasks.add(task);
+			}
+		}
+		return tasks;
+	}
 }

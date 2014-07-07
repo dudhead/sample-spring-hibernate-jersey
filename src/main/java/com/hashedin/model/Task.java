@@ -26,8 +26,10 @@ public class Task {
 	private int		priority;
 	private Date	createdAt;
 	private Date	dueDate;
+
 	@ManyToOne
 	private Project	project;
+
 	@ManyToOne
 	private User	assignedTo;
 

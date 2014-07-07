@@ -17,5 +17,7 @@ public interface ProjectService {
 
 	Project delete(Long projectId);
 
+	List<Task> findTasksOfProjectByStatus(Long projectId, Long status);
+
 	// Project update(Project task, Long taskId);
 }
