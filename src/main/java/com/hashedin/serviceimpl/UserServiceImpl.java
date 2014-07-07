@@ -33,7 +33,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Task> findTasksByUserId(long userId) {
 
-		return userRepository.find(userId).getTasks();
+		User user = userRepository.find(userId);
+		if (user != null)
+			return user.getTasks();
+		else
+			return new User().getTasks();
 	}
 
 	@Override
