@@ -12,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -62,18 +63,14 @@ public class ProjectResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Path("/{projectId}/tasks")
-	public List<Task> getTasks(@PathParam("projectId") Long projectId) {
+	public List<Task> getTasks(@PathParam("projectId") Long projectId,
+			@QueryParam("status") Long statusId) {
 
-		return projectService.findTasksByProjectId(projectId);
-	}
-
-	@GET
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	@Path("/{projectId}/tasks/status/{statusId}")
-	public List<Task> getTasksByStatus(@PathParam("projectId") Long projectId,
-			@PathParam("statusId") Long statusId) {
-
-		return projectService.findTasksOfProjectByStatus(projectId, statusId);
+		if (statusId != null)
+			return projectService.findTasksByProjectId(projectId);
+		else
+			return projectService.findTasksOfProjectByStatus(projectId,
+					statusId);
 	}
 
 	@DELETE
